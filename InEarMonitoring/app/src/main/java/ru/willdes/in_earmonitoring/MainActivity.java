@@ -20,6 +20,7 @@ import java.net.Socket;
 public class MainActivity extends AppCompatActivity {
     ReceiverPlayer rp;
     boolean isRunning;
+    Button toogle;
 
 
     @Override
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         isRunning = false;
 
         final EditText hostname = findViewById(R.id.hostname);
-        final Button toogle = findViewById(R.id.toogle);
+        toogle = findViewById(R.id.toogle);
 
         toogle.setOnClickListener(new View.OnClickListener() {
 
@@ -83,15 +84,21 @@ public class MainActivity extends AppCompatActivity {
                 while (!finishFlag) {
                     numBytesRead = is.read(data, 0, bufferSize);
                     aTrack.write(data, 0, numBytesRead);
+                    Log.d("Thread While", "ReadData");
                 }
 
                 aTrack.stop();
                 s.close();
+                Log.d("Thread While", "StopThread");
             } catch (Exception e) {
                 StringWriter sw = new StringWriter();
                 PrintWriter pw = new PrintWriter(sw);
                 e.printStackTrace(pw);
                 Log.d("Error", sw.toString());
+                toogle.setText("Start");
+                isRunning = false;
+                rp.setFinishFlag();
+
             }
         }
     }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="jAudioReceiver:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/jAudioReceiver_jar</output-path>
+    <root id="archive" name="jAudioReceiver.jar">
+      <element id="module-output" name="jAudioReceiver" />
+    </root>
+  </artifact>
+</component>

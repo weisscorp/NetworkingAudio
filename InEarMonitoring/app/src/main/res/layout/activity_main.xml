@@ -13,7 +13,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="35sp"
-        android:text="192.168.1.50" />
+        android:text="172.16.10.120" />
 
     <Button
         android:id="@+id/toogle"
